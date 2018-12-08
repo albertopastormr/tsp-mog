@@ -34,5 +34,7 @@ if __name__ == "__main__":
     edges_weights, edges_colors = get_drawing_config(path,edges)
 
     # graph plotting
-    nx.draw(G, size=len(G.edges), labels=nodes_mapping, font_size=32, node_color=random_colors(G.number_of_nodes()), alpha=0.3, width=edges_weights, edge_color=edges_colors)
+    plt.figure(1,figsize=(18,12))
+    nx.draw(G, size=len(G.edges), labels=nodes_mapping, font_size=32, node_size=750,
+     node_color=random_colors(G.number_of_nodes()), alpha=0.65, width=edges_weights, edge_color=edges_colors)
     plt.show()
