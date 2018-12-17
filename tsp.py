@@ -3,19 +3,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 
-def build_graph(edges,weights):
+def build_graph(w_low,w_high,n):
     G = nx.Graph()
-    for i, e in enumerate(edges):
-        G.add_edge(*e, weight=weights[i])
-    return G
-
-def doub(edges):
-    ret = []
-    for e in edges:
-        v, u = e
-        ret.append((v,u))
-        ret.append((u,v))
-    return ret
+    edges = []
+    weights = np.random.randint(low=w_low,high=w_high,size=int(n*(n-1)/2))
+    w_ind = 0
+    for v in range(1,n):
+        for u in range(v+1,n):
+            G.add_edge(v,u,weight=weights[w_ind])
+            edges.append((v,u))
+            w_ind += 1
+    return G, edges, weights
 
 def generate_tsp_path(G, origin):
     tour = []
@@ -33,9 +31,8 @@ def generate_tsp_path(G, origin):
         nodes_visited.append(actual_node)
         tour.append(next_edge)
         actual_node = next_node
-    
+    tour.append((actual_node,origin))    
     return tour
-    #return [(1,2),(2,3),(3,4),(4,5)] # example
 
 def get_drawing_config(path, edges):
     edges_config = []
@@ -46,7 +43,6 @@ def get_drawing_config(path, edges):
         else:
             edges_config.append((1,'b'))
     edges_config = np.array(edges_config)
-    #edges_config = np.array([(1,'b') for n in edges])
     edges_weights = list(edges_config[:,0])
     edges_colors = list(edges_config[:,1])
     edges_labels = nx.get_edge_attributes(G,'weight')
@@ -58,22 +54,17 @@ def random_colors(number_of_colors):
     return colors
 
 if __name__ == "__main__":
+    # complete graph construction
     n=12
-
-    # graph construction
-    #edges = [(1,2),(1,3),(1,4),(1,5),(1,6),(2,3),(2,4),(2,5),(3,4),(3,5),(4,5),(5,6),(4,6)] # example
-    edges = [(i,x) for x in range(i+1,n) for i in range(1,n)]
-    weights = np.random.randint(low=1,high=12,size=len(edges))
-
-    G = build_graph(edges,weights)
+    G, edges, weights = build_graph(w_low=1, w_high=12, n=n)
 
     # tsp solving
     path = generate_tsp_path(G,1)
-    print(path)
+
     # drawing config
     edge_weights, edge_colors, edge_labels = get_drawing_config(path,edges)
-    pos = nx.spring_layout(G, k=G.number_of_nodes()/len(edges))
-    node_mapping = dict(zip(G.nodes(),"abcdefg")) # example
+    pos = nx.spring_layout(G, k=20)
+    node_mapping = dict(zip(G.nodes(), [x for x in range(1,n)]))
     node_colors = random_colors(G.number_of_nodes())
 
     # graph plotting
