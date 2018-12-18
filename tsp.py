@@ -55,7 +55,7 @@ def random_colors(number_of_colors):
 
 if __name__ == "__main__":
     # complete graph construction
-    n=12
+    n=6
     G, edges, weights = build_graph(w_low=1, w_high=12, n=n)
 
     # tsp solving
@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     # graph plotting
     plt.figure(1,figsize=(18,12))
-    nx.draw(G,pos, size=len(G.edges), labels=node_mapping, font_size=32, node_size=750,
+    nx.draw(G,pos, size=len(G.edges), labels=node_mapping, font_size=38, node_size=1350,
      node_color=node_colors, alpha=0.65, edge_color='b')
     nx.draw_networkx_edge_labels(G,pos,font_size=21 , edge_labels=edge_labels)
     plt.savefig('graph.png')
@@ -77,9 +77,9 @@ if __name__ == "__main__":
 
 
     plt.figure(2,figsize=(18,12))
-    nx.draw(G,pos, size=len(G.edges), labels=node_mapping, font_size=32, node_size=750,
+    nx.draw(G,pos, size=len(G.edges), labels=node_mapping, font_size=38, node_size=1350,
      node_color=node_colors, alpha=0.65, width=edge_weights, edge_color=edge_colors)
-    nx.draw_networkx_edge_labels(G,pos,font_size=21 , edge_labels=edge_labels)
+    nx.draw_networkx_edge_labels(G,pos,font_size=24 , edge_labels=edge_labels)
     plt.savefig('solution.png')
 
     plt.show()
