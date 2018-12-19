@@ -24,7 +24,8 @@ def generate_tsp_path(G, origin):
         #next_edge = (actual_node, -1)
         min_distance = float('inf')
         for n in G.neighbors(actual_node):
-            if G[actual_node][n]['weight'] < min_distance and n not in nodes_visited or n == origin and len(nodes_visited) == G.number_of_nodes()-1:
+            if G[actual_node][n]['weight'] < min_distance and n not in nodes_visited
+             or n == origin and len(nodes_visited) == G.number_of_nodes()-1:
                 min_distance = G[actual_node][n]['weight']
                 next_node = n
                 next_edge = (actual_node,next_node)
