@@ -12,7 +12,7 @@ The travelling salesman problem (TSP) asks the following question: "Given a list
 
 We have implemented two solutions to the Travelling Salesman Problem using [C++(branch and bound)](branch-bound.cpp) and [Python(nearest neighbour)](tsp.py)
 
-## Running KoeBot locally 🏠
+## Running our TSP Python implementation locally 🏠
 
 Clone this repository by running the following command in a terminal capable of running _git_: `git clone https://github.com/albertopastormr/tsp-mog.git`.
 
