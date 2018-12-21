@@ -8,4 +8,4 @@ The travelling salesman problem (TSP) asks the following question: "Given a list
 
 ## Implementation 💻
 
-We have implemented two solutions to the Travelling Salesman Problem using [C++(branch and bound)](branch-bound.cpp) and [Python(nearest neighbour)](tsp.py
+We have implemented two solutions to the Travelling Salesman Problem using [C++(branch and bound)](branch-bound.cpp) and [Python(nearest neighbour)](tsp.py)
