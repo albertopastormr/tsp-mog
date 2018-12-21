@@ -11,3 +11,30 @@ The travelling salesman problem (TSP) asks the following question: "Given a list
 ## Implementation 💻
 
 We have implemented two solutions to the Travelling Salesman Problem using [C++(branch and bound)](branch-bound.cpp) and [Python(nearest neighbour)](tsp.py)
+
+## Running KoeBot locally 🏠
+
+Clone this repository by running the following command in a terminal capable of running _git_: `git clone https://github.com/albertopastormr/tsp-mog.git`.
+
+Install all the requirements by following [the guide below](https://github.com/albertopastormr/tsp-mog#requirements-%EF%B8%8F).
+
+Run `tsp.py` by running the following command in a terminal capable of running _python_: `python3 tsp.py`. It should return the optimal path in a matplotlib graph.
+
+## Requirements ⚙️
+
+Besides [Python 3.6](https://www.python.org/downloads/) we will be using the following packages:
+
+* [numpy](http://www.numpy.org/)
+* [scipy](https://www.scipy.org/)
+* [matplotlib](https://matplotlib.org/) 
+* [networkx](https://networkx.github.io/)
+
+You can simply install each package using `pip` as follows:
+```bash
+pip install <package>
+```
+
+Or you can install all the packages needed with the [`requirements.txt`](requirements.txt) file by running:
+```bash
+pip install -r requirements.txt
+```
